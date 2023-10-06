@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monsters Search App</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Pokédex</h1>
+    <input type="text" id="query" placeholder="search your pokemon">
+    <button id="search">Search</button>
+
+
+    <div id="pokemon-container">
+        <h2 id="pokemon-name"></h2>
+        <h2 id="pokemon-id"></h2>
+        <img id="pokemon-picture" src="" alt="">
+        <h4 id="type"></h4>
+        <h4 id="abilities"></h4>
+    </div>
+    
+
+        <div id="stats-bars">
+            <div id="stats-container">
+                <div class="stat">
+                    <div class="stat-label">HP:</div>
+                    <div class="stat-bar" id="hp-bar">
+                        <div class="stat-value" id="hp-stats">0</div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Attack:</div>
+                    <div class="stat-bar" id="atk-bar">
+                        <div class="stat-value" id="atk-stats">0</div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Defense:</div>
+                    <div class="stat-bar" id="def-bar">
+                        <div class="stat-value" id="def-stats">0</div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Special Attack:</div>
+                    <div class="stat-bar" id="sa-bar">
+                        <div class="stat-value" id="sa-stats">0</div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Special Defense:</div>
+                    <div class="stat-bar" id="sd-bar">
+                        <div class="stat-value" id="sd-stats">0</div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Speed:</div>
+                    <div class="stat-bar" id="spd-bar">
+                        <div class="stat-value" id="spd-stats">0</div>
+                    </div>
+                </div>
+            </div>
+    
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
