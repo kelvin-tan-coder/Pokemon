@@ -31,12 +31,19 @@ searchButton.addEventListener('click', () => {
             const spd = data.stats[5].base_stat
             const totalStats = hp + atk + def + sa + sd + spd;
         
-            document.querySelector('#hp-bar').style.width = `${(hp / totalStats) * 100 + 20}%`;
-            document.querySelector('#atk-bar').style.width = `${(atk / totalStats) * 100 + 20}%`;
-            document.querySelector('#def-bar').style.width = `${(def / totalStats) * 100 + 20}%`;
-            document.querySelector('#sa-bar').style.width = `${(sa / totalStats) * 100 + 20}%`;
-            document.querySelector('#sd-bar').style.width = `${(sd / totalStats) * 100 + 20}%`;
-            document.querySelector('#spd-bar').style.width = `${(spd / totalStats) * 100 + 20}%`;
+            // document.querySelector('#hp-bar').style.width = `${(hp / totalStats) * 100 + 20}%`;
+            // document.querySelector('#atk-bar').style.width = `${(atk / totalStats) * 100 + 20}%`;
+            // document.querySelector('#def-bar').style.width = `${(def / totalStats) * 100 + 20}%`;
+            // document.querySelector('#sa-bar').style.width = `${(sa / totalStats) * 100 + 20}%`;
+            // document.querySelector('#sd-bar').style.width = `${(sd / totalStats) * 100 + 20}%`;
+            // document.querySelector('#spd-bar').style.width = `${(spd / totalStats) * 100 + 20}%`;
+
+            document.querySelector('#hp-bar').style.width = `${hp}%`;
+            document.querySelector('#atk-bar').style.width = `${atk}%`;
+            document.querySelector('#def-bar').style.width = `${def}%`;
+            document.querySelector('#sa-bar').style.width = `${sa}%`;
+            document.querySelector('#sd-bar').style.width = `${sd}%`;
+            document.querySelector('#spd-bar').style.width = `${spd}%`;
 
             document.querySelector('#pokemon-name').innerHTML = `Name: ${name}`
             document.querySelector('#pokemon-id').innerHTML = `ID: ${id}`;
