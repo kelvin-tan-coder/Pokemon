@@ -30,6 +30,7 @@ function displayPokemon(data) {
 
     const image = sprites.front_default;
     const type = types.map(a => a.type.name).join(', ');
+    const primaryType = types[0].type.name; 
     const abilitiesList = abilities.map(a => a.ability.name).join(', ');
 
     updateStatBars(stats);
@@ -42,6 +43,8 @@ function displayPokemon(data) {
     document.querySelector('#stats-bars').style.display = 'block';
 
     container.style.display = 'block';
+
+    changeBackgroundColor(primaryType);
 }
 
 function updateStatBars(stats) {
@@ -72,4 +75,71 @@ function hidePokemonInfo() {
 
     container.style.display = 'none';
     statsBars.style.display = 'none';
+}
+
+function changeBackgroundColor(type) {
+    const body = document.body;
+    let bgColor;
+
+    // Set background color based on the Pokémon type
+    switch (type) {
+        case 'normal':
+            bgColor = '#A8A77A'; 
+            break;
+        case 'fire':
+            bgColor = '#EE8130'; 
+            break;
+        case 'water':
+            bgColor = '#6390F0'; 
+            break;
+        case 'electric':
+            bgColor = '#F7D02C'; // Sky Blue
+            break;
+        case 'grass':
+            bgColor = '#7AC74C'; // Pale Green
+            break;
+        case 'ice':
+            bgColor = '#96D9D6'; // Pale Green
+            break;
+        case 'fighting':
+            bgColor = '#C22E28'; // Pale Green
+            break;
+        case 'poison':
+            bgColor = '#A33EA1'; // Pale Green
+            break;
+        case 'ground':
+            bgColor = '#E2BF65'; // Pale Green
+            break;
+        case 'flying':
+            bgColor = '#A98FF3'; // Pale Green
+            break;
+        case 'psychic':
+            bgColor = '#F95587'; // Pale Green
+            break;
+        case 'bug':
+            bgColor = '#A6B91A'; // Pale Green
+            break;
+        case 'rock':
+            bgColor = '#B6A136'; // Pale Green
+            break;
+        case 'ghost':
+            bgColor = '#735797'; // Pale Green
+            break;
+        case 'dragon':
+            bgColor = '#6F35FC'; // Pale Green
+            break;
+        case 'dark':
+            bgColor = '#705746'; 
+            break;
+        case 'steel':
+            bgColor = '#B7B7CE'; 
+            break;
+        case 'fairy':
+            bgColor = '#D685AD'; 
+            break;    
+        default:
+            bgColor = '#f5f5f5'; // Default background color
+    }
+
+    body.style.backgroundColor = bgColor;
 }

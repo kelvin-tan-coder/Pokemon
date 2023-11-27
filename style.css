@@ -8,6 +8,7 @@ body {
 #pokemon-title {
     display: block;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 #pokemon-container {
@@ -172,7 +173,7 @@ h1 {
 
 .stat-bar-wrapper {
     width: 100%;
-    background-color: #c7c7c7;
+    background-color: #d7d7d7;
     border-radius: 5px;
     padding-left: 5px;
     padding-right: 5px;
@@ -186,6 +187,3 @@ h1 {
     position: relative;
     overflow: hidden;
 }
-
-
-
