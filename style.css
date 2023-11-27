@@ -5,6 +5,22 @@ body {
     padding: 20px;
 }
 
+#pokemon-title {
+    display: block;
+    margin: 0 auto;
+}
+
+#pokemon-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}
+
+
 
 h1 {
     font-size: 36px;
@@ -171,15 +187,5 @@ h1 {
     overflow: hidden;
 }
 
-.stat-value {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 14px;
-    color: white;
-    font-weight: bold;
-    z-index: 1;
-}
 
 

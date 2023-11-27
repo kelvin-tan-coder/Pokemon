@@ -7,10 +7,12 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>Pokédex</h1>
-    <input type="text" id="query" placeholder="search your pokemon">
-    <button id="search">Search</button>
-
+    <div class="top-wrapper">
+        <img id="pokemon-title" src="assets/Pokemon-Title.png">
+        <input type="text" id="query" placeholder="search your pokemon">
+        <button id="search">Search</button>
+    </div>
+    
 
     <div id="pokemon-container">
         <h2 id="pokemon-name"></h2>
@@ -21,57 +23,47 @@
     </div>
     
 
-        <div id="stats-bars">
-            <div id="stats-container">
-                <div class="stat">
-                    <div class="stat-label">HP:</div>
-                    <div class="stat-bar-wrapper">
-                        <div class="stat-bar" id="hp-bar">
-                            <div class="stat-value" id="hp-stats">0</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="stat">
-                    <div class="stat-label">Attack:</div>
-                    <div class="stat-bar-wrapper">
-                        <div class="stat-bar" id="atk-bar">
-                            <div class="stat-value" id="atk-stats">0</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="stat">
-                    <div class="stat-label">Defense:</div>
-                    <div class="stat-bar-wrapper">
-                        <div class="stat-bar" id="def-bar">
-                            <div class="stat-value" id="def-stats">0</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="stat">
-                    <div class="stat-label">Special Attack:</div>
-                    <div class="stat-bar-wrapper">
-                        <div class="stat-bar" id="sa-bar">
-                            <div class="stat-value" id="sa-stats">0</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="stat">
-                    <div class="stat-label">Special Defense:</div>
-                    <div class="stat-bar-wrapper">
-                        <div class="stat-bar" id="sd-bar">
-                            <div class="stat-value" id="sd-stats">0</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="stat">
-                    <div class="stat-label">Speed:</div>
-                    <div class="stat-bar-wrapper">
-                        <div class="stat-bar" id="spd-bar">
-                            <div class="stat-value" id="spd-stats">0</div>
-                        </div>
-                    </div>
+    <div id="stats-bars">
+        <div id="stats-container">
+            <div class="stat">
+                <div class="stat-label">HP</div>
+                <div class="stat-bar-wrapper">
+                    <div class="stat-bar" id="hp-bar"></div>
                 </div>
             </div>
+            <div class="stat">
+                <div class="stat-label">ATK</div>
+                <div class="stat-bar-wrapper">
+                    <div class="stat-bar" id="atk-bar"></div>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">DEF</div>
+                <div class="stat-bar-wrapper">
+                    <div class="stat-bar" id="def-bar"></div>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">SATK</div>
+                <div class="stat-bar-wrapper">
+                    <div class="stat-bar" id="sa-bar"></div>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">SDEF</div>
+                <div class="stat-bar-wrapper">
+                    <div class="stat-bar" id="sd-bar"></div>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">SPD</div>
+                <div class="stat-bar-wrapper">
+                    <div class="stat-bar" id="spd-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     
 
     
