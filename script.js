@@ -1,56 +1,100 @@
 const searchButton = document.querySelector('#search');
+const botwrapper = document.querySelector('#bot-wrapper');
 const container = document.querySelector('#pokemon-container');
 const statsBars = document.querySelector('#stats-bars');
+
 
 searchButton.addEventListener('click', () => {
     const input = document.querySelector('#query').value.trim();
     
     if (input === '') {
+        document.body.style.backgroundColor = '#f5f5f5';
         hidePokemonInfo();
         return;
     }
 
     fetchPokemon(input)
-        .then(displayPokemon)
-        .catch(handleError);
-});
+            .then((pokemonData) => {
+                return Promise.all([pokemonData, fetchPokemonDescription(pokemonData.species.url)]);
+            })
+            .then(([pokemonData, descriptionData]) => {
+                displayPokemon(pokemonData, descriptionData);
+            })
+            .catch(handleError);
+    });
+
+function fetchPokemonDescription(speciesUrl) {
+    return fetch(speciesUrl)
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error('Pokemon species data not found');
+            }
+            return res.json();
+        });
+}
 
 function fetchPokemon(pokemonName) {
     return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
         .then((res) => {
             if (!res.ok) {
                 throw new Error('Pokemon not found');
+
+
             }
             return res.json();
-        });
+
+        })
+        
 }
 
-function displayPokemon(data) {
-    const { sprites, name, id, types, abilities, stats } = data;
 
-    const image = sprites.front_default;
+function displayPokemon(pokemonData, descriptionData) {
+    const { sprites, name, id, types, height, weight, abilities, stats } = pokemonData;
+    const dreamWorldImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
+    const defaultImage = sprites.front_default;
+
+    const image = sprites.other.dream_world.front_default ? dreamWorldImage : defaultImage;
+    // const image = sprites.front_default;
+    const camelCaseName = formatPokemonName(name);
+    const formattedId = formatPokemonId(id);
     const type = types.map(a => a.type.name).join(', ');
     const primaryType = types[0].type.name; 
     const abilitiesList = abilities.map(a => a.ability.name).join(', ');
+    const flavorText = descriptionData.flavor_text_entries.find(
+        (entry) => entry.language.name === 'en'
+    ).flavor_text;
 
     updateStatBars(stats);
 
-    document.querySelector('#pokemon-name').innerHTML = `Name: ${name}`;
-    document.querySelector('#pokemon-id').innerHTML = `ID: ${id}`;
+    document.querySelector('#pokemon-name').innerHTML = `${camelCaseName}`;
+    document.querySelector('#pokemon-id').innerHTML = `#${formattedId}`;
     document.querySelector('#pokemon-picture').src = image;
-    document.querySelector('#type').innerHTML = `Type: ${type}`;
-    document.querySelector('#abilities').innerHTML = `Abilities: ${abilitiesList}`;
+    document.querySelector('#type-label').innerHTML = `Type:`;
+    document.querySelector('#type').innerHTML = `${type}`;
+    document.querySelector('#height-label').innerHTML = `height:`;
+    document.querySelector('#poke-height').innerHTML = `${height}m`;
+    document.querySelector('#weight-label').innerHTML = `weight:`;
+    document.querySelector('#poke-weight').innerHTML = `${weight}kg`;
+    document.querySelector('#abilities-label').innerHTML = `Abilities:`;
+    document.querySelector('#abilities').innerHTML = `${abilitiesList}`;
     document.querySelector('#stats-bars').style.display = 'block';
+    document.querySelector('#pokemon-description').innerHTML = flavorText;
 
     container.style.display = 'block';
+    botwrapper.style.display = 'block';
+    statsBars.style.display = 'block';
 
     changeBackgroundColor(primaryType);
+}
+
+
+function formatPokemonName(name) {
+    return name.split('-').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('-');
 }
 
 function updateStatBars(stats) {
     const statNames = ['hp', 'atk', 'def', 'sa', 'sd', 'spd'];
     const mstat = 255;
-    const totalStats = stats.reduce((sum, stat) => sum + stat.base_stat, 0);
 
     statNames.forEach((statName, index) => {
         const statValue = stats[index].base_stat;
@@ -59,13 +103,19 @@ function updateStatBars(stats) {
     });
 }
 
+function formatPokemonId(id) {
+    const numDigits = id.toString().length;
+    const zerosToAdd = 5 - numDigits;
+    return '0'.repeat(zerosToAdd) + id;
+}
+
 function handleError(error) {
     console.error(error.message);
     hidePokemonInfo();
 }
 
 function hidePokemonInfo() {
-    // Resetting UI elements when no Pokemon is found
+
     document.querySelector('#pokemon-name').innerHTML = '';
     document.querySelector('#pokemon-id').innerHTML = '';
     document.querySelector('#pokemon-picture').src = '';
@@ -73,6 +123,7 @@ function hidePokemonInfo() {
     document.querySelector('#abilities').innerHTML = '';
     document.querySelector('#stats-bars').style.display = 'none';
 
+    botwrapper.style.display = 'none';
     container.style.display = 'none';
     statsBars.style.display = 'none';
 }
@@ -81,7 +132,7 @@ function changeBackgroundColor(type) {
     const body = document.body;
     let bgColor;
 
-    // Set background color based on the Pokémon type
+    
     switch (type) {
         case 'normal':
             bgColor = '#A8A77A'; 
@@ -138,7 +189,7 @@ function changeBackgroundColor(type) {
             bgColor = '#D685AD'; 
             break;    
         default:
-            bgColor = '#f5f5f5'; // Default background color
+            bgColor = '#f5f5f5';
     }
 
     body.style.backgroundColor = bgColor;

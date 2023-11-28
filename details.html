@@ -13,57 +13,84 @@
         <button id="search">Search</button>
     </div>
     
-
-    <div id="pokemon-container">
-        <h2 id="pokemon-name"></h2>
-        <h2 id="pokemon-id"></h2>
-        <img id="pokemon-picture" src="" alt="">
-        <h4 id="type"></h4>
-        <h4 id="abilities"></h4>
-    </div>
-    
-
-    <div id="stats-bars">
-        <div id="stats-container">
-            <div class="stat">
-                <div class="stat-label">HP</div>
-                <div class="stat-bar-wrapper">
-                    <div class="stat-bar" id="hp-bar"></div>
-                </div>
+    <div id="bot-wrapper"class="bot-wrapper">
+        <div id="pokemon-container">
+            <div id="name-id-container">
+                <h2 id="pokemon-name"></h2>
+                <h2 id="pokemon-id"></h2>
             </div>
-            <div class="stat">
-                <div class="stat-label">ATK</div>
-                <div class="stat-bar-wrapper">
-                    <div class="stat-bar" id="atk-bar"></div>
+            <div class="pokemon-about-wrapper">
+                <div class="pokemon-about-left-wrapper">
+                    <img id="pokemon-picture" src="" alt="Pokemon">
                 </div>
-            </div>
-            <div class="stat">
-                <div class="stat-label">DEF</div>
-                <div class="stat-bar-wrapper">
-                    <div class="stat-bar" id="def-bar"></div>
-                </div>
-            </div>
-            <div class="stat">
-                <div class="stat-label">SATK</div>
-                <div class="stat-bar-wrapper">
-                    <div class="stat-bar" id="sa-bar"></div>
-                </div>
-            </div>
-            <div class="stat">
-                <div class="stat-label">SDEF</div>
-                <div class="stat-bar-wrapper">
-                    <div class="stat-bar" id="sd-bar"></div>
-                </div>
-            </div>
-            <div class="stat">
-                <div class="stat-label">SPD</div>
-                <div class="stat-bar-wrapper">
-                    <div class="stat-bar" id="spd-bar"></div>
+                <div class="pokemon-about-right-wrapper">
+                    <div class="type-wrapper">
+                        <h4 id="type-label"></h4>
+                        <h4 id="type"></h4>
+                    </div>
+                    <div class="description-wrapper">
+                        <h4 id="description-label">Description:</h4>
+                        <p id="pokemon-description"></p>
+                    </div>
+                    <div class="height-wrapper">
+                        <h4 id="height-label"></h4>
+                        <h4 id="poke-height"></h4>
+                    </div>
+                    <div class="weight-wrapper">
+                        <h4 id="weight-label"></h4>
+                        <h4 id="poke-weight"></h4>
+                    </div>
+                    <div class="abilities-wrapper">
+                        <h4 id="abilities-label"></h4>
+                        <h4 id="abilities"></h4>
+                    </div>
                 </div>
             </div>
         </div>
+        <div id="stats-bars">
+            <div id="stats-container">
+                <h2>Base Stats</h2>
+                <div class="stat">
+                    <div class="stat-label">HP</div>
+                    <div class="stat-bar-wrapper">
+                        <div class="stat-bar" id="hp-bar"></div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">ATK</div>
+                    <div class="stat-bar-wrapper">
+                        <div class="stat-bar" id="atk-bar"></div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">DEF</div>
+                    <div class="stat-bar-wrapper">
+                        <div class="stat-bar" id="def-bar"></div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">SATK</div>
+                    <div class="stat-bar-wrapper">
+                        <div class="stat-bar" id="sa-bar"></div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">SDEF</div>
+                    <div class="stat-bar-wrapper">
+                        <div class="stat-bar" id="sd-bar"></div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">SPD</div>
+                    <div class="stat-bar-wrapper">
+                        <div class="stat-bar" id="spd-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-    
+   
     
 
     
