@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monsters Search App</title>
+    <meta name="description" content="Explore and learn about different Pokémon.">
+    <meta property="og:title" content="Poke">
+    <meta property="og:description" content="Explore and learn about different Pokémon.">
+    <meta property="og:image" content="URL_TO_YOUR_LOGO_OR_POKEMON_IMAGE">
+    <title>Poke</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="top-wrapper">
         <img id="pokemon-title" src="assets/Pokemon-Title.png">
         <input type="text" id="query" placeholder="search your pokemon">
-        <button id="search">Search</button>
+        <button id="search">Go!</button>
     </div>
     
     <div id="bot-wrapper"class="bot-wrapper">
         <div id="pokemon-container">
             <div id="name-id-container">
-                <h2 id="pokemon-name"></h2>
                 <h2 id="pokemon-id"></h2>
+                <h2 id="pokemon-name"></h2>
             </div>
             <div class="pokemon-about-wrapper">
                 <div class="pokemon-about-left-wrapper">
@@ -49,51 +53,49 @@
         </div>
         <div id="stats-bars">
             <div id="stats-container">
-                <h2>Base Stats</h2>
+                <h2 id="stat-heading">Base Stats</h2>
                 <div class="stat">
-                    <div class="stat-label">HP</div>
+                    <div class="stat-label" id="hp-stat">HP</div>
                     <div class="stat-bar-wrapper">
                         <div class="stat-bar" id="hp-bar"></div>
                     </div>
                 </div>
                 <div class="stat">
-                    <div class="stat-label">ATK</div>
+                    <div class="stat-label" id="atk-stat">ATK</div>
                     <div class="stat-bar-wrapper">
                         <div class="stat-bar" id="atk-bar"></div>
                     </div>
                 </div>
                 <div class="stat">
-                    <div class="stat-label">DEF</div>
+                    <div class="stat-label" id="def-stat">DEF</div>
                     <div class="stat-bar-wrapper">
                         <div class="stat-bar" id="def-bar"></div>
                     </div>
                 </div>
                 <div class="stat">
-                    <div class="stat-label">SATK</div>
+                    <div class="stat-label" id="sa-stat">SATK</div>
                     <div class="stat-bar-wrapper">
                         <div class="stat-bar" id="sa-bar"></div>
                     </div>
                 </div>
                 <div class="stat">
-                    <div class="stat-label">SDEF</div>
+                    <div class="stat-label" id="sd-stat">SDEF</div>
                     <div class="stat-bar-wrapper">
                         <div class="stat-bar" id="sd-bar"></div>
                     </div>
                 </div>
                 <div class="stat">
-                    <div class="stat-label">SPD</div>
+                    <div class="stat-label" id="spd-stat">SPD</div>
                     <div class="stat-bar-wrapper">
                         <div class="stat-bar" id="spd-bar"></div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
    
-    
-
-    
     <script src="script.js"></script>
+    <div id="loading-spinner" class="spinner"></div>
+    <script src="spiner.js"></script>
 </body>
 </html>

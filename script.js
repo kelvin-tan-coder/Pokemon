@@ -52,9 +52,7 @@ function displayPokemon(pokemonData, descriptionData) {
     const { sprites, name, id, types, height, weight, abilities, stats } = pokemonData;
     const dreamWorldImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
     const defaultImage = sprites.front_default;
-
     const image = sprites.other.dream_world.front_default ? dreamWorldImage : defaultImage;
-    // const image = sprites.front_default;
     const camelCaseName = formatPokemonName(name);
     const formattedId = formatPokemonId(id);
     const type = types.map(a => a.type.name).join(', ');
@@ -64,6 +62,8 @@ function displayPokemon(pokemonData, descriptionData) {
         (entry) => entry.language.name === 'en'
     ).flavor_text;
 
+
+
     updateStatBars(stats);
 
     document.querySelector('#pokemon-name').innerHTML = `${camelCaseName}`;
@@ -72,17 +72,15 @@ function displayPokemon(pokemonData, descriptionData) {
     document.querySelector('#type-label').innerHTML = `Type:`;
     document.querySelector('#type').innerHTML = `${type}`;
     document.querySelector('#height-label').innerHTML = `height:`;
-    document.querySelector('#poke-height').innerHTML = `${height}m`;
+    document.querySelector('#poke-height').innerHTML = `${height / 10}m`;
     document.querySelector('#weight-label').innerHTML = `weight:`;
-    document.querySelector('#poke-weight').innerHTML = `${weight}kg`;
+    document.querySelector('#poke-weight').innerHTML = `${weight / 10}kg`;
     document.querySelector('#abilities-label').innerHTML = `Abilities:`;
     document.querySelector('#abilities').innerHTML = `${abilitiesList}`;
     document.querySelector('#stats-bars').style.display = 'block';
     document.querySelector('#pokemon-description').innerHTML = flavorText;
-
     container.style.display = 'block';
     botwrapper.style.display = 'block';
-    statsBars.style.display = 'block';
 
     changeBackgroundColor(primaryType);
 }
@@ -99,6 +97,9 @@ function updateStatBars(stats) {
     statNames.forEach((statName, index) => {
         const statValue = stats[index].base_stat;
         const barElement = document.querySelector(`#${statName}-bar`);
+        const statLabelElement = document.querySelector(`#${statName}-stat`);
+
+        statLabelElement.innerHTML = `${statName.toUpperCase()} | ${statValue}`;
         barElement.style.width = `${statValue / mstat * 100}%`;
     });
 }
