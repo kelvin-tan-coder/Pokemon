@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore and learn about different Pokémon.">
-    <meta property="og:title" content="Poke">
+    <meta property="og:title" content="PokeApi">
     <meta property="og:description" content="Explore and learn about different Pokémon.">
     <meta property="og:image" content="URL_TO_YOUR_LOGO_OR_POKEMON_IMAGE">
-    <title>Poke</title>
+    <title>PokeApi</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -19,33 +19,45 @@
     
     <div id="bot-wrapper"class="bot-wrapper">
         <div id="pokemon-container">
-            <div id="name-id-container">
-                <h2 id="pokemon-id"></h2>
-                <h2 id="pokemon-name"></h2>
+            <div class="pokename">
+                <img src="assets/pokeball-800x600-unscreen.gif" alt="pokeball img" id="pokeball-gif">
+                <div id="name-id-container">
+                    <h2 id="pokemon-id"></h2>
+                    <h2 id="pokemon-name"></h2>
+                </div>
             </div>
             <div class="pokemon-about-wrapper">
                 <div class="pokemon-about-left-wrapper">
                     <img id="pokemon-picture" src="" alt="Pokemon">
                 </div>
+                <div class="about-divider"></div>
                 <div class="pokemon-about-right-wrapper">
                     <div class="type-wrapper">
-                        <h4 id="type-label"></h4>
+                        <h3 id="type-label"></h3>
                         <h4 id="type"></h4>
                     </div>
                     <div class="description-wrapper">
-                        <h4 id="description-label">Description:</h4>
+                        <h3 id="description-label">Description:</h3>
                         <p id="pokemon-description"></p>
                     </div>
-                    <div class="height-wrapper">
-                        <h4 id="height-label"></h4>
-                        <h4 id="poke-height"></h4>
-                    </div>
-                    <div class="weight-wrapper">
-                        <h4 id="weight-label"></h4>
-                        <h4 id="poke-weight"></h4>
+                    <div class="height-weight-container">
+                        <div class="height-wrapper">
+                            <div class="num-icon-container">
+                                <img id="pokemon-height-weight-icon" src="assets/height.svg" class="straighten">
+                                <h4 id="poke-height"></h4>
+                            </div>
+                            <h3 id="height-label"></h3>
+                        </div>
+                        <div class="weight-wrapper">
+                            <div class="num-icon-container">
+                                <img id="pokemon-height-weight-icon" src="assets/weight.svg">
+                                <h4 id="poke-weight"></h4>
+                            </div>
+                            <h3 id="weight-label"></h3>
+                        </div>
                     </div>
                     <div class="abilities-wrapper">
-                        <h4 id="abilities-label"></h4>
+                        <h3 id="abilities-label"></h3>
                         <h4 id="abilities"></h4>
                     </div>
                 </div>
@@ -54,40 +66,59 @@
         <div id="stats-bars">
             <div id="stats-container">
                 <h2 id="stat-heading">Base Stats</h2>
-                <div class="stat">
-                    <div class="stat-label" id="hp-stat">HP</div>
-                    <div class="stat-bar-wrapper">
-                        <div class="stat-bar" id="hp-bar"></div>
+                <div class="stat-overall-wrapper">
+                    <img src="assets/HP.png" alt="hp-icon" id="stat-icon">
+                    <div class="stat">
+                        <div class="stat-label" id="hp-stat">HP</div>
+                        <div class="stat-bar-wrapper">
+                            <div class="stat-bar" id="hp-bar"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="stat">
-                    <div class="stat-label" id="atk-stat">ATK</div>
-                    <div class="stat-bar-wrapper">
-                        <div class="stat-bar" id="atk-bar"></div>
+                <div class="stat-overall-wrapper">
+                    <img src="assets/Attack.png" alt="atk-icon" id="stat-icon">
+                    <div class="stat">
+                        <div class="stat-label" id="atk-stat">ATK</div>
+                        <div class="stat-bar-wrapper">
+                            <div class="stat-bar" id="atk-bar"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="stat">
-                    <div class="stat-label" id="def-stat">DEF</div>
-                    <div class="stat-bar-wrapper">
-                        <div class="stat-bar" id="def-bar"></div>
+                <div class="stat-overall-wrapper">
+                    <img src="assets/Defense.png" alt="def-icon" id="stat-icon">
+                    <div class="stat">
+                        <div class="stat-label" id="def-stat">DEF</div>
+                        <div class="stat-bar-wrapper">
+                            <div class="stat-bar" id="def-bar"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="stat">
-                    <div class="stat-label" id="sa-stat">SATK</div>
-                    <div class="stat-bar-wrapper">
-                        <div class="stat-bar" id="sa-bar"></div>
+                <div class="stat-overall-wrapper">
+                    <img src="assets/Special-Attack.png" alt="sa-icon" id="stat-icon">
+                    <div class="stat">
+                        <div class="stat-label" id="sa-stat">SATK</div>
+                        <div class="stat-bar-wrapper">
+                            <div class="stat-bar" id="sa-bar"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="stat-overall-wrapper">
+                    <img src="assets/Special-Defense.png" alt="sd-icon" id="stat-icon">
+                    <div class="stat">
+                        <div class="stat-label" id="sd-stat">SDEF</div>
+                        <div class="stat-bar-wrapper">
+                            <div class="stat-bar" id="sd-bar"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="stat">
-                    <div class="stat-label" id="sd-stat">SDEF</div>
-                    <div class="stat-bar-wrapper">
-                        <div class="stat-bar" id="sd-bar"></div>
-                    </div>
-                </div>
-                <div class="stat">
-                    <div class="stat-label" id="spd-stat">SPD</div>
-                    <div class="stat-bar-wrapper">
-                        <div class="stat-bar" id="spd-bar"></div>
+                <div class="stat-overall-wrapper">
+                    <img src="assets/Speed.png" alt="spd-icon" id="stat-icon">
+                    <div class="stat">
+                        <div class="stat-label" id="spd-stat">SPD</div>
+                        <div class="stat-bar-wrapper">
+                            <div class="stat-bar" id="spd-bar"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,7 +126,5 @@
     </div>
    
     <script src="script.js"></script>
-    <div id="loading-spinner" class="spinner"></div>
-    <script src="spiner.js"></script>
 </body>
 </html>

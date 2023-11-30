@@ -3,7 +3,6 @@ const botwrapper = document.querySelector('#bot-wrapper');
 const container = document.querySelector('#pokemon-container');
 const statsBars = document.querySelector('#stats-bars');
 
-
 searchButton.addEventListener('click', () => {
     const input = document.querySelector('#query').value.trim();
     
@@ -24,14 +23,15 @@ searchButton.addEventListener('click', () => {
     });
 
 function fetchPokemonDescription(speciesUrl) {
-    return fetch(speciesUrl)
+     return fetch(speciesUrl)
         .then((res) => {
             if (!res.ok) {
                 throw new Error('Pokemon species data not found');
             }
             return res.json();
         });
-}
+    }
+    
 
 function fetchPokemon(pokemonName) {
     return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
@@ -46,6 +46,7 @@ function fetchPokemon(pokemonName) {
         })
         
 }
+
 
 
 function displayPokemon(pokemonData, descriptionData) {
@@ -71,9 +72,9 @@ function displayPokemon(pokemonData, descriptionData) {
     document.querySelector('#pokemon-picture').src = image;
     document.querySelector('#type-label').innerHTML = `Type:`;
     document.querySelector('#type').innerHTML = `${type}`;
-    document.querySelector('#height-label').innerHTML = `height:`;
+    document.querySelector('#height-label').innerHTML = `height`;
     document.querySelector('#poke-height').innerHTML = `${height / 10}m`;
-    document.querySelector('#weight-label').innerHTML = `weight:`;
+    document.querySelector('#weight-label').innerHTML = `weight`;
     document.querySelector('#poke-weight').innerHTML = `${weight / 10}kg`;
     document.querySelector('#abilities-label').innerHTML = `Abilities:`;
     document.querySelector('#abilities').innerHTML = `${abilitiesList}`;
